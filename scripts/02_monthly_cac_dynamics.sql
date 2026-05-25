@@ -1,7 +1,7 @@
 WITH
   deduped_data AS (
     SELECT *
-    FROM `skelar-intensive-2026.homework_sql.marketing_ads_raw`
+    FROM `marketing_ads_raw`
     QUALIFY
       ROW_NUMBER() OVER (PARTITION BY ad_id, date ORDER BY timestamp DESC) = 1
   ),
